@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dal Esta | Portfolio</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-image: url("assets/img/bgoc.png");
+      color: #333;
+      font-family: 'Penman', sans-serif;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background: rgba(245, 240, 103, 0.8);
+      backdrop-filter: blur(6px);
+      padding: 1rem 2rem;
+      border-bottom-left-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #899bcc; }
+
+    @font-face {
+      font-family: 'Penman';
+      src: url('assets/font/KGPerfectPenmanship.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Header";
+      src: url("assets/font/ChettaVissto.ttf") format("truetype");
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding-top: 5rem;
+    }
+
+    h1 { color:#555; font-size: 5.5rem; margin-bottom: 0.3rem; color: #222; text-align:center; font-family: 'Header', sans-serif; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);}
+    h2 { color: #899bcc; margin-bottom: 0.3rem; text-align:center;}
+    p { max-width: 600px; color: #555; margin-bottom: 0.3rem; text-align:center;}
+
+    h1, h2, p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+    @keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+
+.oc-showcase {
+  position: relative;
+  margin: 4rem auto;
+  width: 250px;
+  height: 250px;
+}
+
+.oc-showcase img {
+  width: 100%;
+}
+
+.bubble {
+  position: absolute;
+  width: 180px; 
+  height: 130px;
+  background-image: url('assets/img/cloud.png');
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  font-weight: 600;
+  color: #444;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); 
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.bubble2 {
+  position: absolute;
+  width: 150px; 
+  height: 150px;
+  background-image: url('assets/img/peek.png');
+  background-size: contain;   
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.bubble:hover, .bubble2:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1); 
+}
+
+.bubble.art {
+  top: -60px; 
+  left: 250px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.bubble.design {
+  bottom: 50px; 
+  left: -300px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.bubble.video {
+  bottom: 50px; 
+  right: -300px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.bubble.web {
+  top: -60px; 
+  right: 230px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.bubble2.ghost{
+  bottom: -150px; 
+  right: -200px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.bubble2.ghost2{
+  bottom: -190px; 
+  left: -150px;
+  animation: float 3s ease-in-out infinite;
+}
+
+    .carousel-container {
+      overflow: hidden;
+      width: 100%;
+      max-width: 1200px;
+      margin: 2rem auto;
+      position: relative;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: slide 40s infinite linear;
+    }
+
+    .carousel-track img {
+      width: 20vw;
+      min-width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      margin: 0 5px;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+  .text-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  text-align: center;
+  overflow: hidden;
+
+  width: 100%;
+  max-width: 1200px;
+  height: 200px;
+  padding: 10rem 2rem;  
+
+  font-weight: 500;
+  color: #444;
+
+  background-image: url("assets/img/introbg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+    section {
+      min-height: 100vh;
+      padding: 6rem 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background:#f7fbff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      width: 450px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .project-card2 {
+      background:#fcfda5;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      width: 450px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .project-card:hover, .project-card2:hover { transform: translateY(-5px); }
+
+    /* 🌺 Contact */
+    .contact button {
+      background: #fcfda5;
+      color: #333;
+      border: none;
+      font-style: 'Penman', sans-serif;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s;
+    }
+
+    .contact button:hover { background: #899bcc; }
+
+    /* 🌷 Modals */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(182, 194, 250, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 15;
+      padding: 1rem;
+    }
+
+    .modal-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      text-align: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content video{
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .close-btn {
+      margin-top: 1rem;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover { background: #899bcc; }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="about">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <img src="assets/img/art1.jfif" alt="Artwork 1">
+        <img src="assets/img/art2.png" alt="Artwork 2">
+        <img src="assets/img/art3.png" alt="Artwork 3">
+        <img src="assets/img/art4.png" alt="Artwork 4">
+        <img src="assets/img/art5.png" alt="Artwork 5">
+        <img src="assets/img/art6.png" alt="Artwork 6">
+        <img src="assets/img/art7.png" alt="Artwork 7">
+        <img src="assets/img/art8.png" alt="Artwork 8">
+        <img src="assets/img/art9.png" alt="Artwork 9">
+        <img src="assets/img/art10.png" alt="Artwork 10">
+        <img src="assets/img/art11.png" alt="Artwork 11">
+        <img src="assets/img/art12.png" alt="Artwork 12">
+        <img src="assets/img/art13.png" alt="Artwork 13">
+        <img src="assets/img/art14.png" alt="Artwork 14">
+        <img src="assets/img/art15.jfif" alt="Artwork 15">
+        <img src="assets/img/art16.png" alt="Artwork 16">
+        <img src="assets/img/art17.png" alt="Artwork 17">
+        <img src="assets/img/art1.jfif" alt="Artwork 1">
+        <img src="assets/img/art2.png" alt="Artwork 2">
+        <img src="assets/img/art3.png" alt="Artwork 3">
+        <img src="assets/img/art4.png" alt="Artwork 4">
+        <img src="assets/img/art5.png" alt="Artwork 5">
+        <img src="assets/img/art6.png" alt="Artwork 6">
+        <img src="assets/img/art7.png" alt="Artwork 7">
+        <img src="assets/img/art8.png" alt="Artwork 8">
+        <img src="assets/img/art9.png" alt="Artwork 9">
+        <img src="assets/img/art10.png" alt="Artwork 10">
+        <img src="assets/img/art11.png" alt="Artwork 11">
+        <img src="assets/img/art12.png" alt="Artwork 12">
+        <img src="assets/img/art13.png" alt="Artwork 13">
+        <img src="assets/img/art14.png" alt="Artwork 14">
+        <img src="assets/img/art15.jfif" alt="Artwork 15">
+        <img src="assets/img/art16.png" alt="Artwork 16">
+        <img src="assets/img/art17.png" alt="Artwork 17">
+      </div>
+    </div>
+
+    <h1>Hi, I’m <span style="color: #899bcc;">Dal!</span></h1>
+    <p style="font-size: 20px; margin-top: -25px;">Designer & Frontend/Webdesigner</p><br>
+  
+    <div class="text-container">
+    <p>Hi, I’m Dal — an artist who loves turning ideas into warm, visual stories. From illustrations and design layouts to websites and short video edits, I enjoy crafting things that feel expressive, gentle, and alive. Every piece I make carries a bit of my world — soft tones, cozy details, and a love for creativity that connects.</p>
+    </div><br><br>
+
+  <div class="oc-showcase">
+    <p style="font-size: 30px;">My Gallery</p>
+    <img src="assets/img/dally.png" alt="OC Art of Dal">
+    <div class="bubble art" data-modal="artModal">Art</div>
+    <div class="bubble design" data-modal="designModal">Design</div>
+    <div class="bubble video" data-modal="videoModal">Video</div>
+    <div class="bubble web" data-modal="webModal">Web</div>
+    <div class="bubble2 ghost" data-modal="ghostModal"></div>
+    <div class="bubble2 ghost2" data-modal="ghostModal"></div>
+  </div>
+  </header>
+
+  <section id="projects">
+    <h1>Projects</h1>
+    <p>Here are the projects that I've worked on so far. Only two were I can provide for now, hope you don't mind!</p>
+    <div class="projects">
+      <div class="project-card" data-modal="modal1">
+        <h3>Project One</h3>
+        <p>Tierran - Landing Page Concept</p>
+      </div>
+      <div class="project-card" data-modal="modal2">
+        <h3>Project Two</h3>
+        <p>TRACCOS system with database</p>
+      </div>
+      <div class="project-card2" data-modal="modal3">
+        <h3>Project Three</h3>
+        <p>Future projects ♡</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <h3>Project One - Tierran</h3>
+      <p>This project was made from Figma. This is my first project btw! You can check the link here if you want to check live!</p>
+      <a href="https://bit.ly/Terrian">Tierran View Link</a><br>
+      <img src="assets/img/tierran.PNG" alt="Project One Preview" />
+      <button class="close-btn">Back</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <h3>Project Two - TRACCOS</h3>
+      <p>A tracking system with database that I made in my intern days. I had a lot of struggles on here, take note it's helped by AI for complex codes, but overall I planned how I'll do this and that to meet the expected outcome.</p>
+      <a href="https://bit.ly/4hkzFsX">TRACCOS View Link</a><br>
+      <img src="assets/img/traccos.png" alt="Project Two Preview" />
+      <button class="close-btn">Back</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <h3>Project Three</h3>
+      <p>Interactive prototype built with HTML, CSS, and JS — featuring modals and smooth transitions.</p>
+      <button class="close-btn">Back</button>
+    </div>
+  </div>
+
+<div class="modal" id="artModal">
+  <div class="modal-content">
+    <h2>Art Gallery</h2>
+    <p>Just like the intro carousel you saw earlier, these are the arts I've drawn. I call them dallies! If you're interested in my arts, commissions are open but I'll soon add a button below to direct you to art page (soon)!</p><br>
+    <img src="assets/img/photos3.png" alt="Art Design">
+    <button class="close-btn">Back</button>
+  </div>
+</div>
+
+<div class="modal" id="designModal">
+  <div class="modal-content">
+    <h2>Designs from Canva</h2>
+    <p>Since school days, I've been into designing especially my favorite platform is Canva! Posters, presentations, cards, and more for personal use! Even in my intern days, I was tasked to make designs from them!</p><br>
+    <img src="assets/img/photos1.png" alt="Graphic Design">
+    <button class="close-btn">Back</button>
+  </div>
+</div>
+
+<div class="modal" id="videoModal">
+  <div class="modal-content">
+    <h2>Video Editing</h2>
+    <p>Personal use so before, I edit some but hopefully in the future I can do more, especially when animation is involved!</p><br>
+    <video src="assets/vid/photos4.mp4" alt="Video Editing" controls="auto"></video>
+    <button class="close-btn">Back</button>
+  </div>
+</div>
+
+<div class="modal" id="webModal">
+  <div class="modal-content">
+    <h2>Web Design</h2>
+    <p>And app designs were my thing when I pursued my IT course. But now, I'm interested in Figma to learn more about web design! I hope to make more and make use of it in the future. This also aligns with my dream goal right now! </p><br>
+    <img src="assets/img/photos2.png" alt="Web Design">
+    <button class="close-btn">Back</button>
+    
+  </div>
+</div>
+
+  <section id="contact" class="contact">
+    <h1>Let’s <span style="color: #899bcc;">Connect!</span></h1>
+    <p>If you’d like to work with me or say hi, click below 💌</p><br>
+    <button id="openContact">Send Message</button>
+  </section>
+
+  <div class="modal" id="contactModal">
+    <div class="modal-content">
+      <h3>Say Hello 👋</h3>
+      <p>Email me at <span style="color: #899bcc;"><strong>daniellavillanueva159@gmail.com</strong></span> and I'll be happy to reach out your mail! Thank you!</p>
+      <button class="close-btn">Back</button>
+    </div>
+  </div>
+
+  <script>
+  const modals = document.querySelectorAll(".modal");
+  const closeBtns = document.querySelectorAll(".close-btn");
+
+  const cards = document.querySelectorAll(".project-card");
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const modalId = card.getAttribute("data-modal");
+      document.getElementById(modalId).style.display = "flex";
+    });
+  });
+
+  const bubbles = document.querySelectorAll(".bubble");
+  bubbles.forEach(bubble => {
+    bubble.addEventListener("click", () => {
+      const modalId = bubble.getAttribute("data-modal");
+      document.getElementById(modalId).style.display = "flex";
+    });
+  });
+
+  const contactBtn = document.getElementById("openContact");
+  const contactModal = document.getElementById("contactModal");
+  contactBtn.addEventListener("click", () => {
+    contactModal.style.display = "flex";
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.closest(".modal").style.display = "none";
+    });
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target.classList.contains("modal")) {
+      e.target.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
